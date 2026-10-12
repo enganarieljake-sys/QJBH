@@ -1,0 +1,40 @@
+{
+    "framework": null,
+    "regions": ["hnd1"],
+    "crons": [
+        { "path": "/cron/bill-reminders", "schedule": "0 0 * * *" }
+    ],
+    "buildCommand": "npm run build",
+    "outputDirectory": "public",
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.9.0",
+            "maxDuration": 60
+        }
+    },
+    "routes": [
+        { "src": "/", "dest": "/api/index.php" },
+        { "src": "/(.*\\.php)$", "dest": "/api/index.php" },
+        { "handle": "filesystem" },
+        { "src": "/(.*)", "dest": "/api/index.php" }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "APP_CONFIG_CACHE": "/tmp/config.php",
+        "APP_EVENTS_CACHE": "/tmp/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/services.php",
+        "VIEW_COMPILED_PATH": "/tmp",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "database",
+        "SESSION_LIFETIME": "10080",
+        "CACHE_STORE": "array",
+        "QUEUE_CONNECTION": "sync",
+        "PAYMENT_FILES_DISK": "supabase",
+        "SUPABASE_URL": "https://axmldpvskvcijqwktcbg.supabase.co",
+        "SUPABASE_BUCKET": "unistay-payments",
+        "SUPABASE_S3_REGION": "ap-northeast-1"
+    }
+}

@@ -1,0 +1,25 @@
+# Secrets and local-only files must never be uploaded to Vercel.
+.env
+.env.*
+!.env.example
+*.bak*
+.kilo
+.kilocode
+.vscode
+.idea
+
+# Rebuilt on Vercel during the build step.
+/vendor
+/node_modules
+/public/build
+/public/hot
+/public/storage
+
+# Local runtime data.
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/app/private/*
+/storage/app/public/*
+/tests
